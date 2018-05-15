@@ -1,0 +1,10 @@
+D:\Work\SQLMigrate\SQLMigrate\bin\Debug\SQLMigrate.exe.config
+D:\Work\SQLMigrate\SQLMigrate\bin\Debug\SQLMigrate.exe
+D:\Work\SQLMigrate\SQLMigrate\bin\Debug\SQLMigrate.pdb
+D:\Work\SQLMigrate\SQLMigrate\obj\Debug\SQLMigrate.csprojResolveAssemblyReference.cache
+D:\Work\SQLMigrate\SQLMigrate\obj\Debug\SQLMigrate.Properties.Resources.resources
+D:\Work\SQLMigrate\SQLMigrate\obj\Debug\SQLMigrate.csproj.GenerateResource.Cache
+D:\Work\SQLMigrate\SQLMigrate\obj\Debug\SQLMigrate.exe
+D:\Work\SQLMigrate\SQLMigrate\obj\Debug\SQLMigrate.pdb
+D:\Work\SQLMigrate\SQLMigrate\obj\Debug\SQLMigrate.loginForm.resources
+D:\Work\SQLMigrate\SQLMigrate\obj\Debug\SQLMigrate.mainForm.resources
