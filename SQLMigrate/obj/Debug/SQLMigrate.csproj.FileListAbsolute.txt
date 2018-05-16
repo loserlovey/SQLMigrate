@@ -8,3 +8,13 @@ D:\Work\SQLMigrate\SQLMigrate\obj\Debug\SQLMigrate.exe
 D:\Work\SQLMigrate\SQLMigrate\obj\Debug\SQLMigrate.pdb
 D:\Work\SQLMigrate\SQLMigrate\obj\Debug\SQLMigrate.loginForm.resources
 D:\Work\SQLMigrate\SQLMigrate\obj\Debug\SQLMigrate.mainForm.resources
+C:\Mywork\dotnet\SQLMigrate\SQLMigrate\bin\Debug\SQLMigrate.exe.config
+C:\Mywork\dotnet\SQLMigrate\SQLMigrate\bin\Debug\SQLMigrate.exe
+C:\Mywork\dotnet\SQLMigrate\SQLMigrate\bin\Debug\SQLMigrate.pdb
+C:\Mywork\dotnet\SQLMigrate\SQLMigrate\obj\Debug\SQLMigrate.csprojResolveAssemblyReference.cache
+C:\Mywork\dotnet\SQLMigrate\SQLMigrate\obj\Debug\SQLMigrate.loginForm.resources
+C:\Mywork\dotnet\SQLMigrate\SQLMigrate\obj\Debug\SQLMigrate.mainForm.resources
+C:\Mywork\dotnet\SQLMigrate\SQLMigrate\obj\Debug\SQLMigrate.Properties.Resources.resources
+C:\Mywork\dotnet\SQLMigrate\SQLMigrate\obj\Debug\SQLMigrate.csproj.GenerateResource.Cache
+C:\Mywork\dotnet\SQLMigrate\SQLMigrate\obj\Debug\SQLMigrate.exe
+C:\Mywork\dotnet\SQLMigrate\SQLMigrate\obj\Debug\SQLMigrate.pdb
