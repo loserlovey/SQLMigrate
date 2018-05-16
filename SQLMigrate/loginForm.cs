@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace SQLMigrate
 {
@@ -15,12 +16,21 @@ namespace SQLMigrate
         public loginForm()
         {
             InitializeComponent();
+
+            comboBox1.SelectedIndex = 1;
         }
 
         private void connectBtn_Click(object sender, EventArgs e)
         {
+            SqlConnectionStringBuilder scsb = new SqlConnectionStringBuilder();
+            scsb.DataSource = this.textBox1.Text;
+            scsb.InitialCatalog = "master";
+            scsb.UserID = this.textBox2.Text;
+            scsb.Password = this.textBox3.Text;
+
+            connectionString = scsb.ToString();
+
             this.Hide();
-            (new mainForm()).Show();
         }
     }
 }
