@@ -46,6 +46,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(197, 22);
             this.textBox1.TabIndex = 0;
+            this.textBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox1_KeyDown);
             // 
             // textBox2
             // 
@@ -55,6 +56,7 @@
             this.textBox2.Size = new System.Drawing.Size(197, 22);
             this.textBox2.TabIndex = 2;
             this.textBox2.Text = "sa";
+            this.textBox2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox2_KeyDown);
             // 
             // textBox3
             // 
@@ -65,6 +67,7 @@
             this.textBox3.Size = new System.Drawing.Size(197, 22);
             this.textBox3.TabIndex = 3;
             this.textBox3.UseSystemPasswordChar = true;
+            this.textBox3.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox3_KeyDown);
             // 
             // comboBox1
             // 
@@ -77,6 +80,7 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(197, 24);
             this.comboBox1.TabIndex = 1;
+            this.comboBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.comboBox1_KeyDown);
             // 
             // label1
             // 
@@ -153,6 +157,7 @@
             this.Name = "loginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SQL Server Data Migration Tool";
+            this.Enter += new System.EventHandler(this.connectBtn_Click);
             this.ResumeLayout(false);
             this.PerformLayout();
 

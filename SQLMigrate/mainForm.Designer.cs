@@ -35,10 +35,10 @@
             // checkedListBox1
             // 
             this.checkedListBox1.FormattingEnabled = true;
-            this.checkedListBox1.Location = new System.Drawing.Point(33, 85);
+            this.checkedListBox1.Location = new System.Drawing.Point(33, 51);
             this.checkedListBox1.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(583, 404);
+            this.checkedListBox1.Size = new System.Drawing.Size(583, 395);
             this.checkedListBox1.TabIndex = 0;
             this.checkedListBox1.SelectedIndexChanged += new System.EventHandler(this.checkedListBox1_SelectedIndexChanged);
             // 
@@ -46,18 +46,18 @@
             // 
             this.dbList.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.dbList.FormattingEnabled = true;
-            this.dbList.Location = new System.Drawing.Point(33, 49);
+            this.dbList.Location = new System.Drawing.Point(33, 15);
             this.dbList.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.dbList.Name = "dbList";
-            this.dbList.Size = new System.Drawing.Size(583, 33);
+            this.dbList.Size = new System.Drawing.Size(583, 24);
             this.dbList.TabIndex = 1;
             this.dbList.SelectedIndexChanged += new System.EventHandler(this.dbList_SelectedIndexChanged);
             // 
             // mainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(888, 639);
+            this.ClientSize = new System.Drawing.Size(636, 461);
             this.Controls.Add(this.dbList);
             this.Controls.Add(this.checkedListBox1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
