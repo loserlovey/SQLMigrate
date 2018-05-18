@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Configuration;
 
 namespace SQLMigrate
 {
@@ -16,8 +17,7 @@ namespace SQLMigrate
         public loginForm()
         {
             InitializeComponent();
-
-            comboBox1.SelectedIndex = 1;
+            loadConfigFile();
         }
 
         private void connectBtn_Click(object sender, EventArgs e)
@@ -55,6 +55,7 @@ namespace SQLMigrate
             {
 
                 MessageBox.Show(ex.ToString());
+                throw ex;
             }
             finally
             {
@@ -113,6 +114,34 @@ namespace SQLMigrate
                     connectBtn.Focus();
                 }
             }
+        }
+
+        private void loginForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            exitFlag = 1;
+        }
+
+        private void loginForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyValue == 27)
+            {
+                this.Close();
+            }
+        }
+
+        private void loadConfigFile()
+        {
+            string runmode = ConfigurationManager.AppSettings["runmode"];
+            if (runmode == "0")
+            {
+                textBox1.Text = ".";
+                textBox2.Text = "sa";
+                textBox3.Text = "TestAdmin123";
+            }
+
+            comboBox1.Items.Add("Windows Authentication");
+            comboBox1.Items.Add("SQL Server Authentication");
+            comboBox1.SelectedIndex = 1;
         }
     }
 }

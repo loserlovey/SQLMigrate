@@ -28,19 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
+            this.tableCheckedListBox = new System.Windows.Forms.CheckedListBox();
             this.dbList = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
-            // checkedListBox1
+            // tableCheckedListBox
             // 
-            this.checkedListBox1.FormattingEnabled = true;
-            this.checkedListBox1.Location = new System.Drawing.Point(33, 51);
-            this.checkedListBox1.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(583, 395);
-            this.checkedListBox1.TabIndex = 0;
-            this.checkedListBox1.SelectedIndexChanged += new System.EventHandler(this.checkedListBox1_SelectedIndexChanged);
+            this.tableCheckedListBox.FormattingEnabled = true;
+            this.tableCheckedListBox.Location = new System.Drawing.Point(33, 51);
+            this.tableCheckedListBox.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.tableCheckedListBox.Name = "tableCheckedListBox";
+            this.tableCheckedListBox.Size = new System.Drawing.Size(583, 395);
+            this.tableCheckedListBox.TabIndex = 0;
             // 
             // dbList
             // 
@@ -51,7 +50,6 @@
             this.dbList.Name = "dbList";
             this.dbList.Size = new System.Drawing.Size(583, 24);
             this.dbList.TabIndex = 1;
-            this.dbList.SelectedIndexChanged += new System.EventHandler(this.dbList_SelectedIndexChanged);
             // 
             // mainForm
             // 
@@ -59,7 +57,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(636, 461);
             this.Controls.Add(this.dbList);
-            this.Controls.Add(this.checkedListBox1);
+            this.Controls.Add(this.tableCheckedListBox);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.Name = "mainForm";
@@ -72,7 +70,9 @@
 
         #endregion
 
-        private System.Windows.Forms.CheckedListBox checkedListBox1;
+        private System.Windows.Forms.CheckedListBox tableCheckedListBox;
         private System.Windows.Forms.ComboBox dbList;
+
+        public string connectionString;
     }
 }
