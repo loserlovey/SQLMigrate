@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.IO;
 
 namespace SQLMigrate
 {
@@ -16,6 +17,8 @@ namespace SQLMigrate
         public mainForm()
         {
             InitializeComponent();
+            this.currentStep = 1;
+            this.btnPreStep.Visible = false;
         }
 
         private void mainForm_Load(object sender, EventArgs e)
@@ -29,6 +32,7 @@ namespace SQLMigrate
             this.connectionString = loginForm.connectionString;
             loadDatabaseList(connectionString);
             loadTableList(/*connectionString, this.dbList.SelectedItem.ToString()*/);
+
         }
 
         private void updateConnectionStringWithDBName(string databaseName)
@@ -81,11 +85,6 @@ namespace SQLMigrate
             loadTableList();
         }
 
-        private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void loadTableList()
         {
             SqlConnection sqlConn = new SqlConnection(connectionString);
@@ -114,6 +113,38 @@ namespace SQLMigrate
             finally
             {
                 sqlConn.Close();
+            }
+        }
+
+        private void btnNexStep_Click(object sender, EventArgs e)
+        {
+            if (currentStep == 1)
+            {
+                panelStep1.Visible = false;
+                panelStep2.Visible = true;
+            }
+        }
+
+        private void btnPreStep_Click(object sender, EventArgs e)
+        {
+            string tempFile = Path.GetTempFileName();
+            MessageBox.Show(tempFile);
+
+            panelStep1.Visible = false;
+        }
+
+        private void comboBoxSvrType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBoxSvrType.SelectedIndex == 0) //SQl
+            {
+                comboBoxAuthType.Enabled = true;
+                comboBoxAuthType.SelectedIndex = 0;
+                textBoxPort.Enabled = false;
+            }
+            else if (comboBoxSvrType.SelectedIndex == 1) //PostgreSQL
+            {
+                comboBoxAuthType.Enabled = false;
+                textBoxPort.Enabled = true;
             }
         }
     }
