@@ -18,31 +18,125 @@ namespace SQLMigrate
         {
             InitializeComponent();
             this.currentStep = 1;
-            this.btnPreStep.Visible = false;
+            comboBoxSvrType.SelectedIndex = 0;
         }
 
         private void mainForm_Load(object sender, EventArgs e)
         {
-            var loginForm = new loginForm();
-            loginForm.ShowDialog();
-            if (loginForm.exitFlag == 1)
-            {
-                System.Environment.Exit(0);
-            }
-            this.connectionString = loginForm.connectionString;
-            loadDatabaseList(connectionString);
-            loadTableList(/*connectionString, this.dbList.SelectedItem.ToString()*/);
-
+            //var loginForm = new loginForm();
+            //loginForm.ShowDialog();
+            //if (loginForm.exitFlag == 1)
+            //{
+            //    System.Environment.Exit(0);
+            //}
+            //this.connectionString = loginForm.connectionString;
+            //loadDatabaseList(connectionString);
+            //loadTableList(/*connectionString, this.dbList.SelectedItem.ToString()*/);
+            updateScreenStatus(currentStep);
         }
 
         private void updateConnectionStringWithDBName(string databaseName)
         {
-            string[] items = this.connectionString.Split(';');
+            string[] items = this.sourceConnectionString.Split(';');
             items[1] = items[1].Split('=')[0] + "=" + databaseName;
-            this.connectionString = "";
+            this.sourceConnectionString = "";
             foreach (var item in items)
             {
-                connectionString += item + ";";
+                sourceConnectionString += item + ";";
+            }
+        }
+
+        private string buildConnectionString()
+        {
+            SqlConnectionStringBuilder scsb = new SqlConnectionStringBuilder();
+            if (this.textBoxIP.Text.Length == 0)
+            {
+                MessageBox.Show("Please enter the Server name or ip");
+                this.textBoxIP.Focus();
+            }
+            scsb.DataSource = this.textBoxIP.Text;
+            scsb.InitialCatalog = "master";
+            if (this.textBoxUserID.Text.Length == 0)
+            {
+                MessageBox.Show("Please enter the user name");
+                this.textBoxUserID.Focus();
+            }
+            scsb.UserID = this.textBoxUserID.Text;
+            if (this.textBoxPassword.Text.Length == 0)
+            {
+                MessageBox.Show("Please enter the password");
+                this.textBoxPassword.Focus();
+            }
+            scsb.Password = this.textBoxPassword.Text;
+
+            return scsb.ToString();
+        }
+
+        private void tryConnect(int currentStep)
+        {
+            SqlConnection sqlConn;
+            if (currentStep == 1)
+            {
+                sqlConn = new SqlConnection(sourceConnectionString);
+            }
+            else
+            {
+                sqlConn = new SqlConnection(targetConnectionString);
+            }
+            try
+            {
+                sqlConn.Open();
+                MessageBox.Show("Connected!");
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+                throw ex;
+            }
+            finally
+            {
+                sqlConn.Close();
+            }
+        }
+
+        private void updateScreenStatus(int currentStep)
+        {
+            if (currentStep == 1)
+            {
+                panelDataConnection.Visible = true;
+                panelDataSource.Visible = false;
+                panelMigrate.Visible = false;
+                btnPreStep.Enabled = false;
+                btnNexStep.Enabled = false;
+                this.Text = "SQL Migration Tool - Select Source Server";
+            }
+            else if (currentStep == 2)
+            {
+                panelDataConnection.Visible = false;
+                panelDataSource.Visible = true;
+                panelMigrate.Visible = false;
+                btnPreStep.Enabled = true;
+                btnNexStep.Enabled = true;
+                this.Text = "SQL Migration Tool - Select Source Data";
+            }
+            else if (currentStep == 3)
+            {
+                panelDataConnection.Visible = true;
+                panelDataSource.Visible = false;
+                panelMigrate.Visible = false;
+                btnPreStep.Enabled = true;
+                btnNexStep.Enabled = false;
+                this.Text = "SQL Migration Tool - Select Target Server";
+            }
+            else if (currentStep == 4)
+            {
+                panelDataConnection.Visible = false;
+                panelDataSource.Visible = false;
+                panelMigrate.Visible = true;
+                btnPreStep.Enabled = true;
+                btnNexStep.Enabled = false;
+                this.Text = "SQL Migration Tool - Migration";
             }
         }
 
@@ -87,7 +181,7 @@ namespace SQLMigrate
 
         private void loadTableList()
         {
-            SqlConnection sqlConn = new SqlConnection(connectionString);
+            SqlConnection sqlConn = new SqlConnection(this.sourceConnectionString);
 
             try
             {
@@ -118,19 +212,26 @@ namespace SQLMigrate
 
         private void btnNexStep_Click(object sender, EventArgs e)
         {
-            if (currentStep == 1)
+            if (currentStep == 1) // source server connection
             {
-                panelStep1.Visible = false;
-                panelStep2.Visible = true;
+                loadDatabaseList(this.sourceConnectionString);
+                loadTableList();
             }
+            else if (currentStep == 3) // target server connection
+            {
+
+            }
+            currentStep++;
+            updateScreenStatus(currentStep);
         }
 
         private void btnPreStep_Click(object sender, EventArgs e)
         {
-            string tempFile = Path.GetTempFileName();
-            MessageBox.Show(tempFile);
+            //string tempFile = Path.GetTempFileName();
+            //MessageBox.Show(tempFile);
 
-            panelStep1.Visible = false;
+            currentStep--;
+            updateScreenStatus(currentStep);
         }
 
         private void comboBoxSvrType_SelectedIndexChanged(object sender, EventArgs e)
@@ -146,6 +247,30 @@ namespace SQLMigrate
                 comboBoxAuthType.Enabled = false;
                 textBoxPort.Enabled = true;
             }
+        }
+
+        private void connectBtn_Click(object sender, EventArgs e)
+        {
+            if (currentStep == 1)
+            {
+                this.sourceConnectionString = buildConnectionString();
+            }
+            else
+            {
+                this.targetConnectionString = buildConnectionString();
+            }
+            try
+            {
+                tryConnect(currentStep);
+                this.btnNexStep.Enabled = true;
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+                throw ex;
+            }
+            
         }
     }
 }
