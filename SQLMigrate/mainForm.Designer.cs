@@ -48,9 +48,9 @@
             this.textBoxIP = new System.Windows.Forms.TextBox();
             this.btnNexStep = new System.Windows.Forms.Button();
             this.panelMigrate = new System.Windows.Forms.Panel();
-            this.btnMigrate = new System.Windows.Forms.Button();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.btnMigrate = new System.Windows.Forms.Button();
             this.panelDataSource.SuspendLayout();
             this.panelDataConnection.SuspendLayout();
             this.panelMigrate.SuspendLayout();
@@ -270,6 +270,21 @@
             this.panelMigrate.Size = new System.Drawing.Size(435, 455);
             this.panelMigrate.TabIndex = 6;
             // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Location = new System.Drawing.Point(5, 44);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(423, 408);
+            this.richTextBox1.TabIndex = 3;
+            this.richTextBox1.Text = "";
+            // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(109, 14);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(319, 23);
+            this.progressBar1.TabIndex = 1;
+            // 
             // btnMigrate
             // 
             this.btnMigrate.Location = new System.Drawing.Point(5, 10);
@@ -279,31 +294,16 @@
             this.btnMigrate.Text = "Start Migrate";
             this.btnMigrate.UseVisualStyleBackColor = true;
             // 
-            // progressBar1
-            // 
-            this.progressBar1.Location = new System.Drawing.Point(109, 14);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(319, 23);
-            this.progressBar1.TabIndex = 1;
-            // 
-            // richTextBox1
-            // 
-            this.richTextBox1.Location = new System.Drawing.Point(5, 44);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(423, 408);
-            this.richTextBox1.TabIndex = 3;
-            this.richTextBox1.Text = "";
-            // 
             // mainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(454, 518);
-            this.Controls.Add(this.panelMigrate);
             this.Controls.Add(this.panelDataConnection);
             this.Controls.Add(this.panelDataSource);
             this.Controls.Add(this.btnNexStep);
             this.Controls.Add(this.btnPreStep);
+            this.Controls.Add(this.panelMigrate);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.MaximizeBox = false;

@@ -17,22 +17,22 @@ namespace SQLMigrate
         public mainForm()
         {
             InitializeComponent();
-            this.currentStep = 1;
+            
             comboBoxSvrType.SelectedIndex = 0;
         }
 
         private void mainForm_Load(object sender, EventArgs e)
         {
-            //var loginForm = new loginForm();
-            //loginForm.ShowDialog();
-            //if (loginForm.exitFlag == 1)
-            //{
-            //    System.Environment.Exit(0);
-            //}
-            //this.connectionString = loginForm.connectionString;
-            //loadDatabaseList(connectionString);
-            //loadTableList(/*connectionString, this.dbList.SelectedItem.ToString()*/);
+            this.currentStep = 1;
+            initConnectionForm();
             updateScreenStatus(currentStep);
+        }
+
+        private void initConnectionForm()
+        {
+            comboBoxSvrType.SelectedIndex = 0;
+            textBoxIP.Text = ".";
+            comboBoxAuthType.SelectedIndex = 0;
         }
 
         private void updateConnectionStringWithDBName(string databaseName)

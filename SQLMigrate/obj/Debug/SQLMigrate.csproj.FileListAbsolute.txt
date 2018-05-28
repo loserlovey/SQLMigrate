@@ -6,7 +6,6 @@ D:\Work\SQLMigrate\SQLMigrate\obj\Debug\SQLMigrate.Properties.Resources.resource
 D:\Work\SQLMigrate\SQLMigrate\obj\Debug\SQLMigrate.csproj.GenerateResource.Cache
 D:\Work\SQLMigrate\SQLMigrate\obj\Debug\SQLMigrate.exe
 D:\Work\SQLMigrate\SQLMigrate\obj\Debug\SQLMigrate.pdb
-D:\Work\SQLMigrate\SQLMigrate\obj\Debug\SQLMigrate.loginForm.resources
 D:\Work\SQLMigrate\SQLMigrate\obj\Debug\SQLMigrate.mainForm.resources
 C:\Mywork\dotnet\SQLMigrate\SQLMigrate\bin\Debug\SQLMigrate.exe.config
 C:\Mywork\dotnet\SQLMigrate\SQLMigrate\bin\Debug\SQLMigrate.exe
